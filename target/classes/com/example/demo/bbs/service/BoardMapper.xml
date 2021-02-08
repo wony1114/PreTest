@@ -4,6 +4,13 @@
 <mapper namespace="com.example.demo.bbs.service.BoardMapper">
 	<insert id="insert" parameterType="com.example.demo.bbs.service.Board">
 		insert into boards(content, writer_id, reg_date) 
-        values (#{content}, #{writerId}, #{regDate})
+        values (#{content}, #{writerId}, now())
 	</insert>
+	<select id="select" resultType="com.example.demo.bbs.service.Board">
+		select bd_num bdNum,
+			   content,
+			   writer_id writerId,
+			   reg_date regDate
+		from boards
+	</select>
 </mapper>

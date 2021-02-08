@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="container">
-  <h2>방문자 리뷰</h2>
+  <h2>리뷰 수정</h2>
   <a href="#" id="write">리뷰쓰기</a>
   <table id="bdlist">
   	<thead>

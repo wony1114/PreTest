@@ -4,9 +4,9 @@ bbs.write = x => {
 	$.ajax({
 		url:`${x}/boards`,
 		type: 'POST',
-		data: JSON.stringify({
-			writerId: $('#writerId').val(),
-			content: $('#content').val()
+		data: JSON.stringify({			
+			content: $('#content').val(),
+			writerId: $('#writerId').val()
 		}),
 		dataTye: 'json',
 		contentType: 'application/json',
@@ -20,14 +20,17 @@ bbs.write = x => {
 	})
 }
 bbs.list = x => {
-	$.getJSON(`${x}/boards`, d => {
+	$.getJSON(`${x.ctx}/boards`, d => {
 		$.each(d.list, (i, j) =>{
-			$(`<tr><td>${j.dbNum}</td>
+			$(`<tr><td>${j.bdNum}</td>				
+				<td><a href="#" id="content-detail">${j.content}</a></td>
 				<td>${j.writerId}</td>
-				<td>${j.content}</td>
 				<td>${j.regDate}</td></tr>`)
 				.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
-				.appendTo(`#bbs.list`)
+				.appendTo(`#bdlist`)
 		})
 	})
+}
+bbs.update = x => {
+	
 }

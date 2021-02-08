@@ -32,8 +32,7 @@ public class BoardController {
 	public Map<?, ?> list(){
 		logger.info("리스트 진입");
 		var map = new HashMap<>();
-		map.put("list", boardService.list);
-		map.put("message", (boardService.list == 1) ? Messenger.SUCCESS : Messenger.FAILURE);
+		map.put("list", boardService.list());
 		return map;
 	}
 }

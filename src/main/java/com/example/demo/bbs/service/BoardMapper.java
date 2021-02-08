@@ -9,7 +9,7 @@ public interface BoardMapper {
 
 	public int insert(Board board);
 
-	public List<Board> selectAll();
+	public List<Board> select();
 
 
 }

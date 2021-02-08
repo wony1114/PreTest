@@ -13,6 +13,9 @@ public class BoardService {
 		return boardMapper.insert(board);
 	}
 	public int list;
+	public List<Board> list(){
+		return boardMapper.select();
+	}
 	
 }
 
