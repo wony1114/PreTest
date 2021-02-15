@@ -16,6 +16,9 @@ public class BoardService {
 	public List<Board> list(){
 		return boardMapper.select();
 	}
-	
+	public Board selectById(String bdNum) {
+		return boardMapper.selectById(bdNum);
+	}
+
 }
 

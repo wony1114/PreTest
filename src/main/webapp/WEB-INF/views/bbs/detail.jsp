@@ -13,35 +13,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
-	table {border: white 1px solid}
-	table tr {border: white 1px solid}
-	table tr td {border: white 1px solid}
-	table tr th {border: white 1px solid}
+	
 </style>
 </head>
 <body>
 <div class="container">
-  <h2>리뷰 수정</h2>
-  <a href="#" id="write">리뷰쓰기</a>
-  <table id="bdlist">
+  <h2>상세보기</h2><br/>
+  <a href="#" id="list">리뷰 목록</a><br/><br/><br/>
+  	<table id="bddetail">
   	<thead>
-  		<tr>
-  			<td>글번호</td> 			
-            <td>리뷰</td>
-            <td>작성자</td>
-            <td>작성일</td>
+  		<tr class="table-active">
+  			<th>글번호: <span id="bdNum"></span></th> 			
+            <th>작성자: <span id="writerId"></span></th>
+            <th>작성일: <span id="regDate"></span></th>
   		</tr>
   	</thead>
-  </table>
+  	<tbody>
+  		<tr><td colspan="3" style="width: 100%">
+  			<div id="content" style="height:300px"></div>
+  		</td></tr>  		
+  	</tbody>
+  	<tr id="toggle"><td></td></tr>
+  </table> 	
 </div>
-<script src="/demo/resources/bbs/js/bbs.js"></script>
+<script src="${bbs}/js/bbs.js"></script>
 <script>
-$('#write').click(function(e){
-	e.preventDefault()
-	location.href = "/demo/move/write"
-})
-bbs.list({ctx: `${ctx}`})
-bbs.update({ctx:`${ctx}`})
+$('#list').click(function(e){location.href = "/demo/move/bbs/list"})
+bbs.detail(`${ctx}`)
 </script>
 </body>
 </html>

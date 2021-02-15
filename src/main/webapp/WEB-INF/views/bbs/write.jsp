@@ -32,13 +32,13 @@
 			<button type="reset" id="cancel-btn" class="btn btn-secondary mb-3">취소</button>
 		</form>
 	</div>
-	<script src="/demo/resources/bbs/js/bbs.js"></script>
+	<script src="${bbs}/js/bbs.js"></script>
 	<script>
 		$('#write-btn').click(function() {
 			bbs.write(`${ctx}`)
 		})
 		$('#cancel-btn').click(function() {
-			location.href = "/demo/move/list"
+			location.href = 'move/bbs/list'
 		})
 	</script>
 </body>

@@ -8,12 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bbs.service.Board;
+import com.example.demo.bbs.service.BoardMapper;
 import com.example.demo.bbs.service.BoardService;
 import com.example.demo.cmm.enm.Messenger;
 
@@ -22,6 +24,7 @@ import com.example.demo.cmm.enm.Messenger;
 public class BoardController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired BoardService boardService;
+	@Autowired BoardMapper boardMapper;
 	
 	@PostMapping("")
 	public Messenger write(@RequestBody Board board) {
@@ -33,6 +36,13 @@ public class BoardController {
 		logger.info("리스트 진입");
 		var map = new HashMap<>();
 		map.put("list", boardService.list());
+		return map;
+	}
+	@GetMapping("/detail/{bdNum}")
+	public Map<?, ?> detail(@PathVariable String bdNum){
+		logger.info("디테일 진입");
+		var map = new HashMap<>();
+		map.put("detail", boardService.selectById(bdNum));
 		return map;
 	}
 }

@@ -26,22 +26,20 @@
   <table id="bdlist">
   	<thead>
   		<tr>
-  			<td>글번호</td> 			
-            <td>리뷰</td>
-            <td>작성자</td>
-            <td>작성일</td>
+  			<th>글번호</th> 			
+            <th>리뷰</th>
+            <th>작성자</th>
+            <th>작성일</th>
   		</tr>
   	</thead>
   </table>
 </div>
-<script src="/demo/resources/bbs/js/bbs.js"></script>
+<script src="${bbs}/js/bbs.js"></script>
 <script>
-$('#write').click(function(e){
-	e.preventDefault()
-	location.href = "/demo/move/write"
-})
+$('#write').click(function(e){location.href = 'move/bbs/write'})
 bbs.list({ctx: `${ctx}`})
-bbs.update({ctx:`${ctx}`})
+
+
 </script>
 </body>
 </html>

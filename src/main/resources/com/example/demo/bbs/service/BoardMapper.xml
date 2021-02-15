@@ -13,4 +13,12 @@
 			   reg_date regDate
 		from boards
 	</select>
+	<select  id="selectById" resultType="com.example.demo.bbs.service.Board" parameterType="string">
+		select bd_num bdNum,
+			   content,
+			   writer_id writerId,
+			   reg_date regDate
+		from boards
+		where bd_num like #{bdNum}	   
+	</select>
 </mapper>

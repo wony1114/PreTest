@@ -11,5 +11,7 @@ public interface BoardMapper {
 
 	public List<Board> select();
 
+	public Board selectById(String bdNum);
+
 
 }
