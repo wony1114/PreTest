@@ -13,5 +13,9 @@ public interface BoardMapper {
 
 	public Board selectById(String bdNum);
 
+	public int update(Board board);
+
+	public int delete(Board board);
+
 
 }

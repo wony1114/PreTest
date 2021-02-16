@@ -19,6 +19,12 @@ public class BoardService {
 	public Board selectById(String bdNum) {
 		return boardMapper.selectById(bdNum);
 	}
+	public int update(Board board) {
+		return boardMapper.update(board);
+	}
+	public int delete(Board board) {
+		return boardMapper.delete(board);
+	}
 
 }
 

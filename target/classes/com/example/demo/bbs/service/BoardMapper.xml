@@ -21,4 +21,11 @@
 		from boards
 		where bd_num like #{bdNum}	   
 	</select>
+	<update id="update" parameterType="com.example.demo.bbs.service.Board">
+		update boards set content = #{content}
+		where bd_num like #{bdNum}
+	</update>
+	<delete id="delete" parameterType="com.example.demo.bbs.service.Board">
+		delete from boards where bd_num like #{bdNum}
+	</delete>
 </mapper>
