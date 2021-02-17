@@ -7,15 +7,16 @@
 <head>
 <title>방문자 리뷰</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  	.main{float: right;}
+  </style>
 </head>
 <body>
 	<div class="container">
+	<h4 class="main"><a href="#" id="home">main</a></h4>
 		<h1>리뷰쓰기</h1>
 		<form>
 			<div>
@@ -34,12 +35,9 @@
 	</div>
 	<script src="${bbs}/js/bbs.js"></script>
 	<script>
-		$('#write-btn').click(function() {
-			bbs.write(`${ctx}`)
-		})
-		$('#cancel-btn').click(function() {
-			location.href = 'move/bbs/list'
-		})
+		$('#home').click(function(e){location.href = `${ctx}`})
+		$('#write-btn').click(function() {bbs.write(`${ctx}`)})
+		$('#cancel-btn').click(function() {location.href = `${ctx}/move/bbs/list`})
 	</script>
 </body>
 </html>

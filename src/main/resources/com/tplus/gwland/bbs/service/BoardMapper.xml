@@ -1,0 +1,31 @@
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tplus.gwland.bbs.service.BoardMapper">
+	<insert id="insert" parameterType="com.tplus.gwland.bbs.service.Board">
+		insert into boards(content, writer_id, reg_date) 
+        values (#{content}, #{writerId}, now())
+	</insert>
+	<select id="select" resultType="com.tplus.gwland.bbs.service.Board">
+		select bd_num bdNum,
+			   content,
+			   writer_id writerId,
+			   reg_date regDate
+		from boards
+	</select>
+	<select  id="selectById" resultType="com.tplus.gwland.bbs.service.Board" parameterType="string">
+		select bd_num bdNum,
+			   content,
+			   writer_id writerId,
+			   reg_date regDate
+		from boards
+		where bd_num like #{bdNum}  
+	</select>
+	<update id="update" parameterType="com.tplus.gwland.bbs.service.Board">
+		update boards set content = #{content}
+		where bd_num like #{bdNum}
+	</update>
+	<delete id="delete" parameterType="com.tplus.gwland.bbs.service.Board">
+		delete from boards where bd_num like #{bdNum}
+	</delete>
+</mapper>

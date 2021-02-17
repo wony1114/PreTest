@@ -12,9 +12,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+  	.main{float: right;}
+  </style>
 </head>
 <body>
 <div class="w3-container">
+  <h4 class="main"><a href="#" id="home">main</a></h4>
   <h2>리뷰 보기</h2>
   <a href="#" id="list">리뷰목록</a>
   <table id="bddetail" class="w3-table w3-striped w3-border">
@@ -33,7 +37,8 @@
 </div>
 <script src="${bbs}/js/bbs.js"></script>
 <script>
-$('#list').click(function(e){location.href = "/demo/move/bbs/list"})
+$('#home').click(function(e){location.href = `${ctx}`})
+$('#list').click(function(e){location.href = `${ctx}/move/bbs/list`})
 bbs.detail(`${ctx}`)
 </script>
 </body>

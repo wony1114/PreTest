@@ -12,11 +12,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+  	.main{float: right;}
+  </style>
 </head>
 <body>
 <div class="w3-container">
+  <h4 class="main"><a href="#" id="home">main</a></h4>
   <h2>방문자 리뷰</h2>
-  <a href="#" id="write">리뷰쓰기</a>
+  <h4><a href="#" id="write">리뷰쓰기</a></h4>
   <table id="bdlist" class="w3-table w3-striped w3-border">
   	<thead>
   		<tr>
@@ -30,7 +34,8 @@
 </div>
 <script src="${bbs}/js/bbs.js"></script>
 <script>
-$('#write').click(function(e){location.href = "/demo/move/bbs/write"})
+$('#home').click(function(e){location.href = `${ctx}`})
+$('#write').click(function(e){location.href = `${ctx}/move/bbs/write`})
 bbs.list({ctx: `${ctx}`})
 
 

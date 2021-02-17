@@ -11,11 +11,11 @@ bbs.write = x => {
 		dataTye: 'json',
 		contentType: 'application/json',
 		success: d => {
-			location.href = "/demo/move/bbs/list"	
+			location.href = `/gwland/move/bbs/list`	
 		},
 		error: e => {
 			alert(`글쓰기 에러: ${e}`)
-			location.href = "/demo/move/bbs/404"
+			location.href = `/gwland/move/bbs/404`
 		}
 	})
 }
@@ -34,7 +34,6 @@ bbs.list = x => {
 			$(this).click(e => {
 				e.preventDefault()
 				localStorage.setItem('bdNum', `${this.id}`)
-				alert(`${this.id}`)
 				location.href=`${x.ctx}/move/bbs/detail`
 			})
 		})
@@ -42,7 +41,6 @@ bbs.list = x => {
 }
 bbs.detail = x => {
 	$.getJSON(`${x}/boards/detail/${localStorage.getItem('bdNum')}`, d => {
-		alert(`디테일들어옴!!!! : ${localStorage.getItem('bdNum')}`)
 		$(`#bdNum`).text(d.detail.bdNum) // d.bdNum 이 아니고 dbNum 출력된 그대로 출려
 		$(`#writerId`).text(d.detail.writerId) // d = map , detail = Dto
 		$("#content").text(d.detail.content)
@@ -56,7 +54,7 @@ bbs.detail = x => {
 			$('#update-btn').click( e => {
 				e.preventDefault()
 				$('#content').html('<textarea id="update-content">'+d.detail.content+'</textarea>')
-				$('#toggle').html('<button id="confirm">수정완료</button>')
+				$('#toggle').html('<button id="confirm">수정완료</button><button id="cancel">취소</button>')
 				$('#confirm').click(e=>{
 					e.preventDefault()
 					$.ajax({
@@ -72,12 +70,16 @@ bbs.detail = x => {
 						contentType:'application/json',
 						success: d => {
 							alert('수정완료')
-							location.href = '/demo/move/bbs/detail'
+							location.href = `/gwland/move/bbs/detail`
 						},
-						errer: e => {
+						error: e => {
 							alert('수정실패')
 						}
 					})
+				})
+				$('#cancel').click(e =>{
+					e.preventDefault()
+					location.href = `/gwland/move/bbs/list`
 				})
 			})
 		$('#delete-btn').click(e => {
@@ -92,7 +94,7 @@ bbs.detail = x => {
 				contentType: 'application/json',
 				success: d => {
 					alert('삭제완료')
-					location.href = '/demo/move/bbs/list'
+					location.href = `/gwland/move/bbs/list`
 				},
 				error: e =>{
 					alert(`삭제실패: ${e}`)
